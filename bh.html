@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>弹窗公告</title>
+		<link rel="stylesheet" href="css/tc.css" />
+		<script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div class="layer"></div>
+		<div id="globalAd">
+			<div id='hero-img' style="background-color: #1a95ff;background: linear-gradient(to left, #5dadf3 0, #4583ca 100%);">
+			</div>
+			<div id='profile-img'>
+				<img src="1.jpg" />
+			</div>
+			<div id='content'>
+				<p style="font-size: 16px;font-weight: bold;">半火介绍</p>
+				<p>半火规则基本上是所有人不会禁网</p>
+				<p>但是支持的东西没全火多</p>
+				<p>全火如果能打完一把的不建议用半火</p>
+				<p>半火可以使用拉闸的绘制触摸</p>
+				<p>经过一个赛季发现这两个功能最稳定的</p>
+				<p>切记不要去用半火规则玩动内存的东西</p>
+				<p>必须是触摸和绘制，一定要触摸别搞混</p>
+				<p>如果玩其他的功能请使用全火规则</p>
+				<p>然后玩半火基本就上分，所以请演戏</p>
+				<p>由于半火有人反馈说午后不太稳定</p>
+				<p>所以决定半火只支持拉闸绘制触摸</p>
+				<p>其他功能请使用全火规则游玩</p>
+				<a href="https://jia2802549.github.io" onClick="redirectUrlToActive();" class="btn btn-default" rel='nofollow'>返回首页</a>
+			</div>
+		</div>
+		<script src="https://api.bingdou.net/js/js.js"></script>
+		<script>
+			jQuery.cookie = function(name, value, options) {
+				if(typeof value != 'undefined') {
+					options = options || {};
+					if(value === null) {
+						value = '';
+						options.expires = -1;
+					}
+					var expires = '';
+					if(options.expires && (typeof options.expires == 'number' || options.expires.toUTCString)) {
+						var date;
+						if(typeof options.expires == 'number') {
+							date = new Date();
+							var totalTime = 24 * 3600;
+							var hour = date.getHours();
+							var minutes = date.getMinutes();
+							var seconds = date.getSeconds();
+							var pastTime = 3600 * hour + 60 * minutes + seconds;
+							var leftTime = totalTime - pastTime;
+							date.setTime(date.getTime() + (options.expires * leftTime * 1000));
+						} else {
+							date = options.expires;
+						}
+						expires = '; expires=' + date.toUTCString();
+					}
+					var path = options.path ? '; path=' + (options.path) : '';
+					var domain = options.domain ? '; domain=' + (options.domain) : '';
+					var secure = options.secure ? '; secure' : '';
+					document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');
+				} else {
+					var cookieValue = null;
+					if(document.cookie && document.cookie != '') {
+						var cookies = document.cookie.split(';');
+						for(var i = 0; i < cookies.length; i++) {
+							var cookie = jQuery.trim(cookies[i]);
+
+						}
+					}
+					return cookieValue;
+				}
+			};
+			$(function() {
+				var COOKIE_NAME = "erdangjiade";
+				if($.cookie(COOKIE_NAME)) {
+					$(".layer").hide();
+					$("#globalAd").hide();
+				} else {
+					var erdangjiadeH = $(window).height();
+					var erdangjiadeW = $(window).width();
+					$(".layer").show();
+					$("#globalAd").css({
+						'top': erdangjiadeH / 2 - $("#globalAd").height() / 2,
+						'left': erdangjiadeW / 2 - $("#globalAd").width() / 2
+					});
+					$("#globalAd").slideDown(300, function() {
+						setTimeout("closeGloableAd()", '300000');
+					});
+					$.cookie(COOKIE_NAME, "erdangjiade", {
+						path: '/',
+						expires: 1
+					});
+				}
+			});
+
+			function closeGlobalAd() {
+				$('#globalAd').hide();
+				$('.layer').hide();
+
+			}
+
+			function redirectUrlToActive() {
+				$('#globalAd').hide();
+				$('.layer').hide();
+			}
+		</script>
+	</body>
+</html>

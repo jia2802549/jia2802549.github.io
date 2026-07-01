@@ -2,147 +2,241 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>猫咪端口导航</title>
 <style>
 *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  /* 多层动态淡绿背景，带纹理感，丰富不单调 */
-  background-image: 
-    radial-gradient(circle at 10% 15%, #d9f9e6 0%, transparent 50%),
-    radial-gradient(circle at 90% 85%, #cbf3d9 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, #f0fdf4 0%, #e6f7ee 100%);
-  background-attachment: fixed;
-  padding: 24px;
-  position: relative;
-  overflow: hidden;
+body{
+    min-height: 100vh;
+    background-color: #e6f9e9;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-/* 背景细微浮动光斑，增加层次 */
-body::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2316a34a' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E");
-  opacity: 0.6;
-  z-index: -1;
+.main-box{
+    width: 100%;
+    max-width: 420px;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 24px 20px;
+    position: relative;
+    overflow: visible;
 }
-
-/* 主卡片 磨砂玻璃 精致饱满 */
-.card {
-  width: 100%;
-  max-width: 420px;
-  background: rgba(255,255,255,0.75);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,0.9);
-  border-radius: 22px;
-  padding: 42px 34px;
-  box-shadow: 
-    0 10px 40px rgba(22,163,74,0.12),
-    0 4px 12px rgba(0,0,0,0.05);
+.title-wrap{
+    text-align: center;
+    margin-bottom: 14px;
 }
-
-/* 标题区域 加粗醒目 */
-.main-title {
-  font-size: 36px;
-  font-weight: 700;
-  color: #14532d;
-  text-align: center;
-  margin-bottom: 12px;
-  letter-spacing: 1px;
+.main-title{
+    font-size: 22px;
+    font-weight: 700;
+    display: inline-block;
+    background: #ffe7e7;
+    padding: 2px 8px;
+    border-radius: 4px;
 }
-.desc {
-  font-size: 16px;
-  color: #407554;
-  text-align: center;
-  margin-bottom: 36px;
+.desc-text{
+    font-size: 13px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 18px;
+    text-align: center;
 }
-
-/* 按钮组 间距舒适、样式饱满 */
-.btn-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.badge-btn-item{
+    position: relative;
+    margin-bottom: 14px;
 }
-.link-btn {
-  display: block;
-  padding: 18px 24px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 17px;
-  font-weight: 600;
-  color: #fff;
-  border-radius: 14px;
-  transition: all 0.28s ease;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+.badge-tag{
+    position: absolute;
+    top: -6px;
+    left: 0;
+    background: #ef3838;
+    color: #fff;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    z-index: 2;
 }
-.link-btn:nth-child(1) {
-  background: linear-gradient(135deg, #f87171, #dc2626);
+/* 按钮：文字完美居中，单独定位小手不影响文字 */
+.page-btn{
+    display: block;
+    width: 100%;
+    background: #ffe7e7;
+    text-align: center;
+    padding: 12px 0;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #111;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.12);
+    transition: all 0.15s ease;
+    cursor: pointer;
+    position: relative;
 }
-.link-btn:nth-child(2) {
-  background: linear-gradient(135deg, #4ade80, #16a34a);
+/* 右下角小手图标（独立定位，不挤压文字） */
+.page-btn::after{
+    content: "👆";
+    position: absolute;
+    right: 14px;
+    bottom: 8px;
+    font-size: 14px;
+    opacity: 0.7;
 }
-.link-btn:nth-child(3) {
-  background: linear-gradient(135deg, #60a5fa, #2563eb);
+.page-btn:active{
+    transform: translateY(2px);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
-.link-btn:nth-child(4) {
-  background: linear-gradient(135deg, #333338, #1f1f23);
-  margin-top: 8px;
+/* 注册充值按钮 */
+.page-btn.recharge{
+    background: linear-gradient(135deg, #ff4d4f, #f5222d);
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(245,34,45,0.28);
 }
-.link-btn:hover {
-  transform: translateY(-4px);
-  filter: brightness(1.06);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.16);
+.page-btn.recharge::after{
+    opacity: 0.9;
 }
-
-/* 底部版权 */
-.footer {
-  position: fixed;
-  bottom: 26px;
-  font-size: 13px;
-  color: #578069;
+.page-btn.recharge:active{
+    transform: translateY(2px);
+    box-shadow: 0 2px 5px rgba(245,34,45,0.2);
 }
-
-/* 移动端适配 */
-@media (max-width: 480px) {
-  .card {
-    padding: 34px 24px;
-  }
-  .main-title {
-    font-size: 30px;
-  }
-  .link-btn {
-    font-size: 16px;
-    padding: 17px;
-  }
+.badge-tag.recharge{
+    background: #f5222d;
+}
+.split-text{
+    font-size: 14px;
+    color: #222;
+    margin: 20px 0 10px;
+    text-align: center;
+}
+.line-divider{
+    width: 100%;
+    height: 1px;
+    background: #ddd;
+    margin-bottom: 14px;
+}
+.contact-info{
+    text-align: center;
+    color: #e02424;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 22px;
+}
+.contact-info p:first-child{
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+.yellow-curve-base{
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: #ffd740;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    z-index: 1;
+}
+/* TG按钮：文字居中+右下角小手 */
+.tg-btn{
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 12px 0;
+    background: linear-gradient(90deg, #ff8822, #e62020);
+    border-radius: 999px;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(230,32,32,0.22);
+    transition: all 0.15s ease;
+    cursor: pointer;
+}
+.tg-btn::after{
+    content: "👆";
+    position: absolute;
+    right: 16px;
+    bottom: 8px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+.tg-btn:active{
+    transform: translateY(2px);
+    box-shadow: 0 2px 5px rgba(230,32,32,0.15);
+}
+.copyright{
+    position: absolute;
+    bottom: -52px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+    color: #444;
+}
+@media (max-width: 375px) {
+    .main-box{
+        padding: 20px 16px;
+    }
+    .main-title{
+        font-size: 20px;
+    }
+    .page-btn{
+        font-size: 16px;
+        padding: 10px 0;
+    }
+    .tg-btn{
+        font-size: 15px;
+        padding: 10px 0;
+    }
+    .contact-info{
+        font-size: 12px;
+    }
 }
 </style>
 </head>
 <body>
-  <div class="card">
-    <h1 class="main-title">猫咪端口导航</h1>
-    <p class="desc">官方直达入口 · 长期稳定运营</p>
-
-    <div class="btn-wrap">
-      <a href="https://vi.dwx888.com/links/D012A216" target="_blank" class="link-btn">小天才</a>
-      <a href="https://jia2802549.lanzoui.com/b085yaajc" target="_blank" class="link-btn">模块网盘</a>
-      <a href="https://qm.qq.com/q/2g5CDkbFCY" target="_blank" class="link-btn">我是真的假的</a>
-      <a href="https://t.me/mmdknb" target="_blank" class="link-btn">TG：@mmdknb</a>
+<div class="main-box">
+    <div class="title-wrap">
+        <h1 class="main-title">猫咪端口导航页</h1>
     </div>
-  </div>
+    <p class="desc-text">始于2022年初运营至今持续稳定，感谢各位兄弟一直以来的支持,官网 dh.mmdk.top</p>
 
-  <div class="footer">dh.mmdk.top © 猫咪端口</div>
+    <div class="badge-btn-item">
+        <div class="badge-tag">提卡</div>
+        <a href="https://vi.dwx888.com/links/D012A216" target="_blank" class="page-btn">在线提卡</a>
+    </div>
+    <div class="badge-btn-item">
+        <div class="badge-tag recharge">充值</div>
+        <a href="https://jia2802549.lanzoui.com/b085yaajc" target="_blank" class="page-btn recharge">账号注册充值入口</a>
+    </div>
+    <div class="badge-btn-item">
+        <div class="badge-tag">猫咪</div>
+        <a href="https://qm.qq.com/q/2g5CDkbFCY" target="_blank" class="page-btn">联系猫咪</a>
+    </div>
+
+    <p class="split-text">支持人工提卡直接联系</p>
+    <div class="line-divider"></div>
+
+    <div class="contact-info">
+        <p>联系方式闲人勿扰</p>
+        <p>猫咪Q号: 3065016423 备用: 298407867</p>
+        <p>猫咪微信: mmdknb666 备用: mmdknb888</p>
+    </div>
+
+    <div class="yellow-curve-base"></div>
+    <a href="https://t.me/mmdknb" target="_blank" class="tg-btn">TG：@mmdknb</a>
+
+    <div class="copyright">copyright © 2021 猫咪端口 all rights reserved.</div>
+</div>
 </body>
 </html>

@@ -14,19 +14,34 @@
 body{
     min-height: 100vh;
     background-color: #e6f9e9;
-    padding: 10px 10px;
+    padding: 12px 10px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    overflow-x: hidden;
+    position: relative;
 }
+/* 全屏樱花底层容器，不阻挡点击 */
+.sakura-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+/* 卡片缩小、降低不透明度，透出底层樱花 */
 .main-box{
     width: 100%;
-    max-width: 420px;
-    background: #ffffff;
-    border-radius: 18px;
-    padding: 24px 20px;
+    max-width: 360px;
+    background: rgba(255,255,255,0.82);
+    border-radius: 20px;
+    padding: 24px 18px;
     position: relative;
     overflow: visible;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+    z-index: 1;
 }
 .title-wrap{
     text-align: center;
@@ -37,128 +52,118 @@ body{
     font-weight: 700;
     display: inline-block;
     background: #ffe7e7;
-    padding: 2px 8px;
-    border-radius: 4px;
+    padding: 3px 10px;
+    border-radius: 6px;
 }
 .desc-text{
     font-size: 13px;
     color: #333;
     line-height: 1.5;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     text-align: center;
 }
 .badge-btn-item{
     position: relative;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
 }
 .badge-tag{
     position: absolute;
-    top: -6px;
+    top: -8px;
     left: 0;
     background: #ef3838;
     color: #fff;
     font-size: 11px;
-    padding: 2px 8px;
-    border-top-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    padding: 3px 8px;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 8px;
     z-index: 2;
 }
-/* 按钮：文字完美居中，单独定位小手不影响文字 */
 .page-btn{
     display: block;
     width: 100%;
-    background: #ffe7e7;
+    background: rgba(255,231,231,0.88);
     text-align: center;
     padding: 12px 0;
-    border-radius: 10px;
+    border-radius: 12px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     color: #111;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.12);
+    box-shadow: 0 2px 7px rgba(0,0,0,0.08);
     transition: all 0.15s ease;
     cursor: pointer;
     position: relative;
 }
-/* 右下角小手图标（独立定位，不挤压文字） */
 .page-btn::after{
     content: "👆";
     position: absolute;
-    right: 14px;
-    bottom: 8px;
-    font-size: 14px;
-    opacity: 0.7;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    opacity: 0.8;
 }
 .page-btn:active{
     transform: translateY(2px);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
-/* 注册充值按钮 */
 .page-btn.recharge{
-    background: linear-gradient(135deg, #ff4d4f, #f5222d);
-    color: #fff;
-    box-shadow: 0 4px 10px rgba(245,34,45,0.28);
+    background: rgba(239,56,56,0.9);
+    color: #ffffff;
+    box-shadow: 0 3px 10px rgba(239,56,56,0.18);
 }
 .page-btn.recharge::after{
-    opacity: 0.9;
-}
-.page-btn.recharge:active{
-    transform: translateY(2px);
-    box-shadow: 0 2px 5px rgba(245,34,45,0.2);
-}
-.badge-tag.recharge{
-    background: #f5222d;
+    opacity: 0.95;
 }
 .split-text{
-    font-size: 14px;
+    font-size: 15px;
     color: #222;
-    margin: 20px 0 10px;
+    margin: 24px 0 10px;
     text-align: center;
 }
 .line-divider{
     width: 100%;
     height: 1px;
-    background: #ddd;
-    margin-bottom: 14px;
+    background: rgba(221,221,221,0.7);
+    margin-bottom: 18px;
 }
 .contact-info{
     text-align: center;
     color: #e02424;
-    font-size: 13px;
-    line-height: 1.5;
-    margin-bottom: 22px;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 28px;
 }
 .contact-info p:first-child{
     font-weight: bold;
-    font-size: 15px;
+    font-size: 16px;
     margin-bottom: 4px;
 }
 .yellow-curve-base{
     position: absolute;
-    bottom: -18px;
+    bottom: -20px;
     left: 0;
     width: 100%;
-    height: 50px;
-    background: #ffd740;
+    height: 56px;
+    background: rgba(255,215,64,0.9);
     border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-    z-index: 1;
+    z-index: -1;
 }
-/* TG按钮：文字居中+右下角小手 */
 .tg-btn{
     position: relative;
     z-index: 2;
     display: block;
-    width: 80%;
+    width: 84%;
     margin: 0 auto;
     text-align: center;
-    padding: 12px 0;
-    background: linear-gradient(90deg, #ff8822, #e62020);
+    padding: 14px 0;
+    background: linear-gradient(90deg, rgba(255,136,34,0.92), rgba(230,32,32,0.92));
     border-radius: 999px;
     color: #fff;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 600;
     text-decoration: none;
-    box-shadow: 0 4px 10px rgba(230,32,32,0.22);
+    box-shadow: 0 4px 12px rgba(230,32,32,0.2);
     transition: all 0.15s ease;
     cursor: pointer;
 }
@@ -166,45 +171,50 @@ body{
     content: "👆";
     position: absolute;
     right: 16px;
-    bottom: 8px;
-    font-size: 14px;
-    opacity: 0.8;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    opacity: 0.9;
 }
 .tg-btn:active{
     transform: translateY(2px);
-    box-shadow: 0 2px 5px rgba(230,32,32,0.15);
+    box-shadow: 0 2px 6px rgba(230,32,32,0.12);
 }
 .copyright{
     position: absolute;
-    bottom: -52px;
+    bottom: -58px;
     left: 0;
     width: 100%;
     text-align: center;
-    font-size: 11px;
+    font-size: 12px;
     color: #444;
 }
 @media (max-width: 375px) {
     .main-box{
-        padding: 20px 16px;
+        padding: 20px 14px;
     }
     .main-title{
         font-size: 20px;
     }
     .page-btn{
-        font-size: 16px;
+        font-size: 18px;
         padding: 10px 0;
     }
     .tg-btn{
-        font-size: 15px;
-        padding: 10px 0;
+        font-size: 16px;
+        padding: 12px 0;
+        width: 82%;
     }
     .contact-info{
-        font-size: 12px;
+        font-size: 13px;
     }
 }
 </style>
 </head>
 <body>
+<!-- 全屏樱花飘落层 -->
+<div class="sakura-container"></div>
+
 <div class="main-box">
     <div class="title-wrap">
         <h1 class="main-title">猫咪端口导航页</h1>
@@ -238,5 +248,51 @@ body{
 
     <div class="copyright">copyright © 2021 猫咪端口 all rights reserved.</div>
 </div>
+
+<script>
+// 樱花飘落动画
+const sakuraBox = document.querySelector('.sakura-container');
+const sakuraNum = 42;
+const sakuraArr = ['🌸','ꕀ','ꕁ','❀','✿'];
+
+function createSakura() {
+    let sakura = document.createElement('div');
+    sakura.innerText = sakuraArr[Math.floor(Math.random() * sakuraArr.length)];
+    sakura.style.position = 'absolute';
+    sakura.style.color = '#ffc8dd';
+    sakura.style.fontSize = Math.random() * 14 + 7 + 'px';
+    sakura.style.left = Math.random() * 100 + '%';
+    sakura.style.top = '-20px';
+    sakura.style.opacity = Math.random() * 0.55 + 0.35;
+    sakura.style.pointerEvents = 'none';
+    sakura.style.animation = `fall ${Math.random() * 7.5 + 5.5}s linear infinite`;
+    sakuraBox.appendChild(sakura);
+
+    if (!document.getElementById('sakura-keyframe')) {
+        let style = document.createElement('style');
+        style.id = 'sakura-keyframe';
+        style.innerHTML = `
+            @keyframes fall {
+                0% {
+                    transform: translateY(0) rotate(0deg) translateX(0);
+                }
+                100% {
+                    transform: translateY(100vh) rotate(720deg) translateX(${Math.random()*80 -40}px);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    setTimeout(() => {
+        sakura.remove();
+        createSakura();
+    }, parseFloat(sakura.style.animationDuration) * 1000);
+}
+
+for(let i=0; i<sakuraNum; i++) {
+    setTimeout(createSakura, i * 160);
+}
+</script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-#内核安卓
+#内核标准
 [RoutingRule]
 DOMAIN,www.baidu.com,PROXY
 DOMAIN-KEYWORD,anticheatexpert,DIRECT

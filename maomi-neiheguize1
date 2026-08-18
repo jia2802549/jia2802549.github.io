@@ -2,6 +2,10 @@
 [RoutingRule]
 DOMAIN,www.baidu.com,PROXY
 DOMAIN-KEYWORD,anticheatexpert,DIRECT
+DOMAIN-KEYWORD,kohcloud.tgpa.qq.com,REJECT
+DOMAIN-KEYWORD,guid.tpns.sh.tencent.com,REJECT
+DOMAIN-KEYWORD,access1.tpns.sh.tencent.com,REJECT
+DOMAIN-KEYWORD,h.trace.qq.com,REJECT
 DOMAIN-KEYWORD,android.crashsight.qq.com,REJECT
 DOMAIN-KEYWORD,android.perfsight.qq.com,REJECT
 DOMAIN-KEYWORD,superr.game.qq.com,REJECT

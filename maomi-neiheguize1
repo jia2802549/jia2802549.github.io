@@ -29,15 +29,11 @@ DOMAIN-KEYWORD,amap,DIRECT
 DOMAIN-KEYWORD,glcoud,DIRECT
 DOMAIN,qosidc.gcloudsdk.com,DIRECT
 DOMAIN,idcconfig.gcloudsdk.com,DIRECT
-DOMAIN,h.trace.qq.com,DIRECT
 DOMAIN,gpcloud.tgpa.qq.com,DIRECT
 DOMAIN,android-v1.perfsight.qq.com,DIRECT
 DOMAIN,appsupport.qq.com,DIRECT
 DOMAIN,hpjy-report.tga.qq.com,DIRECT
-DOMAIN,hpjy-op.tga.qq.com,DIRECT
 DOMAIN,cloudctrl.gcloud.qq.com,DIRECT
-DOMAIN,android.crashsight.qq.com,DIRECT
-DOMAIN,faascjm.native.qq.com,DIRECT
 DOMAIN,pop-release.itop.qq.com,DIRECT
 DOMAIN,ops.gp.qq.com,DIRECT
 DOMAIN,game.gtimg.cn,DIRECT

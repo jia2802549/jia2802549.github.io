@@ -1,7 +1,7 @@
 #内核增强
 [RoutingRule]
 DOMAIN,www.baidu.com,PROXY
-DOMAIN-KEYWORD,anticheatexpert,REJECT
+DOMAIN-KEYWORD,anticheatexpert,DIRECT
 DOMAIN-KEYWORD,kohcloud.tgpa.qq.com,REJECT
 DOMAIN-KEYWORD,guid.tpns.sh.tencent.com,REJECT
 DOMAIN-KEYWORD,access1.tpns.sh.tencent.com,REJECT

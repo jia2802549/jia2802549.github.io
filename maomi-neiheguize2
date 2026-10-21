@@ -56,6 +56,8 @@ DOMAIN,cgugccdn.pg.qq.com,DIRECT
 DOMAIN,down.ydcdn.tcdnos.com,DIRECT
 DOMAIN,down.ws.tcdnos.com,DIRECT
 DOMAIN,down.qq.com,DIRECT
+DOMAIN,gp.qq.com,DIRECT
+DOMAIN,api.ip.sb,DIRECT
 PORT,80,PROXY
 PORT,443,PROXY
 PORT,5692,REJECT

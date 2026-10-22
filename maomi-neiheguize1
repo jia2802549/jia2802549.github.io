@@ -13,6 +13,7 @@ DOMAIN-KEYWORD,galileotelemetry.tencent.com,REJECT
 DOMAIN-KEYWORD,faascjm.native.qq.com,REJECT
 DOMAIN-KEYWORD,gpcloud.tmga.qq.com,REJECT
 DOMAIN-KEYWORD,hpjy-op.tga.qq.com,REJECT
+DOMAIN-KEYWORD,aliyun,DIRECT
 DOMAIN-KEYWORD,qlogo,DIRECT
 DOMAIN-KEYWORD,pandora,DIRECT
 DOMAIN-KEYWORD,xunyou,DIRECT
@@ -56,7 +57,6 @@ DOMAIN,cgugccdn.pg.qq.com,DIRECT
 DOMAIN,down.ydcdn.tcdnos.com,DIRECT
 DOMAIN,down.ws.tcdnos.com,DIRECT
 DOMAIN,down.qq.com,DIRECT
-DOMAIN,www.aliyun.com,DIRECT
 DOMAIN,api.ip.sb,DIRECT
 PORT,80,PROXY
 PORT,443,PROXY

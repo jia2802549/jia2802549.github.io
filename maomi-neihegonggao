@@ -7,6 +7,11 @@ com.tencent.tmgp.sgame
 nb.mmyz.a1
 〈/允许列表〉
 
+〈不允许列表〉
+com.tencent.mm
+com.tencent.mobileqq
+〈/不允许列表〉
+
 〈弹窗配置〉
 
 

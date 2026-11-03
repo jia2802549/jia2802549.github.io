@@ -1,6 +1,7 @@
 #内核增强
 [RoutingRule]
 #无关域名放行
+DOMAIN,.cg.qq.com,DIRECT
 DOMAIN,guid.tpns.sh.tencent.com,DIRECT
 DOMAIN,cloudctrl.gcloud.qq.com,DIRECT
 DOMAIN,faascjm.native.qq.com,DIRECT

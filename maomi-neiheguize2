@@ -83,8 +83,6 @@ DOMAIN,otheve.beacon.qq.com,DIRECT
 DOMAIN,downupdate.ydcdn.tcdnnos.com,DIRECT
 DOMAIN,downupdate.ydxz.tcdnnos.com,DIRECT
 DOMAIN,pandora.ydxz.tcdnos.com,DIRECT
-DOMAIN,www.aliyun.com,DIRECT
-DOMAIN,api.ip.sb,DIRECT
 
 #检测下发
 DOMAIN,down.anticheatexpert.com,DIRECT
@@ -93,7 +91,8 @@ DOMAIN,nj.cschannel.anticheatexpert.com,PROXY
 #验证域名
 DOMAIN,www.baidu.com,PROXY
 DOMAIN-KEYWORD,baidu,PROXY
-
+DOMAIN,www.aliyun.com,DIRECT
+DOMAIN,api.ip.sb,DIRECT
 #登录IP
 IP-CIDR,182.254.116.117,PROXY
 
